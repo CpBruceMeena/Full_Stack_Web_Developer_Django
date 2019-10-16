@@ -1,0 +1,16 @@
+#top{
+  border: 4px solid blue;
+  width: 25%;
+  /* Width bascially takes the width with respect to the webpage */
+  text-align: center;
+  /* top, right, bottom,left */
+  margin: 10px 20px 100px 400px;
+  /*We can also set it to auto.*/
+}
+
+#bottom{
+  border: 4px solid red;
+  width: 50%;
+  padding: 200px;
+  text-align: center;s
+}
