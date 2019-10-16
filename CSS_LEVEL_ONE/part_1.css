@@ -1,0 +1,22 @@
+/*this is the comment section*/
+/* ctrl + / is used to comment a section */
+/*
+selected tag{
+  property: values;
+} */
+
+h1{
+  color: blue;
+}
+
+li{
+  color: rgb(255, 97, 0);
+}
+
+p{
+  color: #0895a8;
+}
+
+h4{
+  color: rgba(255, 97, 0, 1);
+}
