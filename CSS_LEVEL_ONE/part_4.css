@@ -6,7 +6,7 @@ li{
   color: blue;
 }
 
-/*Class styles have higher predecence over the normal tags*/
+/*Class styles have higher preference over the normal tags*/
 
 #two{
   border: 3px solid black;
