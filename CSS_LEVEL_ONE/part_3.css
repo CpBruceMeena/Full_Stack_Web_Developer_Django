@@ -1,0 +1,34 @@
+/* .class is the notation used for classes styles */
+
+.firstdiv{
+  color: blue;
+}
+
+.seconddiv{
+  color: red;
+}
+
+/* #id is used for ids */
+#singledout{
+  color: green;
+  text-decoration: underline;
+}
+
+/*  * is used for overriding everything except ids*/
+/* *{
+  color: black;
+} */
+
+ h3 + ul{
+   /* the elements are width, type, color */
+   border: 4px dotted purple;
+ }
+
+ li a{
+   color: magenta;
+ }
+
+ li a[href="www.youtube.com"]{
+   color: blue;
+   border: 5px solid orange;
+ }
