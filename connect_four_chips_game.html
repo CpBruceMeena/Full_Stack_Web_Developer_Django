@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Connect_four_chips</title>
+    <style media="screen">
+      .board button {
+        height: 70px;
+        width: 70px;
+        background-color: #bbb;
+        border-radius: 50%;
+        display: inline-block;
+        border: 2px solid black;
+      }
+
+      #heading{
+        text-size: 60px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 align = "center" id="heading">Welcome to Connect Four!</h1>
+    <h3 align = "center">The object of this game is to connect four of your chips in a row!</h3>
+    <p align = "center">Player One: it is your turn; pick a column to drop your blue chip.</p>
+    <br><br>
+
+    <table class="board" align = "center">
+      <tr>
+        <td><button type="button" name="button"></button></td>
+        <td><button type="button" name="button"></button></td>
+        <td><button type="button" name="button"></button></td>
+        <td><button type="button" name="button"></button></td>
+        <td><button type="button" name="button"></button></td>
+        <td><button type="button" name="button"></button></td>
+        <td><button type="button" name="button"></button></td>
+      </tr><tr>
+        <td><button type="button" name="button"></button></td>
+        <td><button type="button" name="button"></button></td>
+        <td><button type="button" name="button"></button></td>
+        <td><button type="button" name="button"></button></td>
+        <td><button type="button" name="button"></button></td>
+        <td><button type="button" name="button"></button></td>
+        <td><button type="button" name="button"></button></td>
+      </tr><tr>
+        <td><button type="button" name="button"></button></td>
+        <td><button type="button" name="button"></button></td>
+        <td><button type="button" name="button"></button></td>
+        <td><button type="button" name="button"></button></td>
+        <td><button type="button" name="button"></button></td>
+        <td><button type="button" name="button"></button></td>
+        <td><button type="button" name="button"></button></td>
+      </tr><tr>
+        <td><button type="button" name="button"></button></td>
+        <td><button type="button" name="button"></button></td>
+        <td><button type="button" name="button"></button></td>
+        <td><button type="button" name="button"></button></td>
+        <td><button type="button" name="button"></button></td>
+        <td><button type="button" name="button"></button></td>
+        <td><button type="button" name="button"></button></td>
+      </tr><tr>
+        <td><button type="button" name="button"></button></td>
+        <td><button type="button" name="button"></button></td>
+        <td><button type="button" name="button"></button></td>
+        <td><button type="button" name="button"></button></td>
+        <td><button type="button" name="button"></button></td>
+        <td><button type="button" name="button"></button></td>
+        <td><button type="button" name="button"></button></td>
+      </tr><tr>
+        <td><button type="button" name="button"></button></td>
+        <td><button type="button" name="button"></button></td>
+        <td><button type="button" name="button"></button></td>
+        <td><button type="button" name="button"></button></td>
+        <td><button type="button" name="button"></button></td>
+        <td><button type="button" name="button"></button></td>
+        <td><button type="button" name="button"></button></td>
+      </tr><tr>
+        <td><button type="button" name="button"></button></td>
+        <td><button type="button" name="button"></button></td>
+        <td><button type="button" name="button"></button></td>
+        <td><button type="button" name="button"></button></td>
+        <td><button type="button" name="button"></button></td>
+        <td><button type="button" name="button"></button></td>
+        <td><button type="button" name="button"></button></td>
+      </tr>
+    </table>
+  </body>
+  <script src="jquery_standard_code.js" type="text/javascript"></script>
+  <script type="text/javascript">
+
+      var player1 = prompt("Player One: Enter your name, you will be blue.")
+      var player1Color = 'rgb(84, 151, 255)';
+
+      var player2 = prompt("Player Two: Enter your name, you will be red.")
+      var player2Color = 'rgb(237, 45, 73)';
+
+      var game_on = true;
+      var table = $('table tr');
+
+      function reportWin(rowNum, colNum){
+        console.log("You won starting at this row, col");
+        console.log(rowNum);
+        console.log(colNum);
+      }
+
+      function changeColor(rowIndex, colIndex, color){
+        table.eq(rowIndex).find('td').eq(colIndex).find('button').css("background-color", color);
+      }
+
+      function returnColor(rowIndex, colIndex){
+          return table.eq(rowIndex).find('td').eq(colIndex).find('button').css("background-color");
+      }
+
+    function checkBottom(colIndex){
+      for(var row = 6; row > -1; row--){
+        colorReport = returnColor(row, colIndex);
+        if(colorReport === 'rgb(128, 128, 128)'){
+          return row;
+        }
+      }
+    }
+
+    function colorMatchCheck(one, two, three, four){
+      return(one === two && one=== three && one === four && one !== 'rbg(128, 128, 128)' && one !== undefined);
+    }
+
+    var currentPlayer = 1;
+    var currentName = player1;
+    var currentColor = player1Color;
+
+    $('h3').text(player1 + " it is your turn, pick a column to drop in!");
+
+    $('.board button').on('click', function(){
+      var col = $(this).closest('td').index();
+      var bottomAvail = checkBottom(col);
+      changeColor(bottomAvail, col, currentColor);
+
+    currentPlayer = currentPlayer * -1;
+    if(currentPlayer === 1){
+      currentName = player1;
+      $('h3').text(currentName + " it is your turn")
+      currentColor = player1Color;
+    }else{
+        currentName = player2;
+        $('h3').text(currentName + " it is your turn")
+        currentColor = player2Color;
+    }
+    })
+  </script>
+</html>
