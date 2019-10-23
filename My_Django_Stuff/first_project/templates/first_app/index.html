@@ -1,12 +1,14 @@
 <!DOCTYPE html>
+{% load staticfiles %}
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>First App</title>
+    <title>Owl Page</title>
+    <link rel="stylesheet" href= "{% static "css/mystyle.css"%}">
   </head>
   <body>
-    <h1>Welcome to the landing page, this is the first page.</h1>
-    {{ insert_me }}
+    <h1>This is the picture of owl.</h1>
+<!-- //    <h1>Welcome to the landing page, this is the first page.</h1> -->
+    <img src="{% static "images/owl.jpg" %}" alt="Owl Image">
   </body>
 </html>
- 
