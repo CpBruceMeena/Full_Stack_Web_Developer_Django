@@ -3,12 +3,32 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Owl Page</title>
-    <link rel="stylesheet" href= "{% static "css/mystyle.css"%}">
+    <title>Django level two</title>
+    <link rel="stylesheet" href="{% static "css/mystyle.css" %}"/>
+
   </head>
   <body>
-    <h1>This is the picture of owl.</h1>
-<!-- //    <h1>Welcome to the landing page, this is the first page.</h1> -->
-    <img src="{% static "images/owl.jpg" %}" alt="Owl Image">
+    <h1>Welcome to level 2.</h1>
+    <h2>Here are your access records.</h2>
+    <div class="djangtwo">
+        {% if access_record %}
+          <table>
+            <thead>
+              <th>Site Name</th>
+              <th>Date Access</th>
+            </thead>
+
+            {% for acc in access_record %}
+            <tr>
+              <td>{{ acc.name }}</td>
+              <td>{{ acc.date }}</td>
+            </tr>
+            {% endfor %}
+          </table>
+        {% else %}
+        <p>NO ACCESS RECORDS FOUND!</p>
+        {% endif %}
+
+    </div>
   </body>
 </html>
