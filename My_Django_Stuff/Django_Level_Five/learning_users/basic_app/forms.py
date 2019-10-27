@@ -1,8 +1,8 @@
 from django import forms
-from django.contrib.auth.models import Users
+from django.contrib.auth.models import User
 from basic_app.models import UserProfileInfo
 
-def UserForm(forms.ModelForm):
+class UserForm(forms.ModelForm):
     password = forms.CharField(widget = forms.PasswordInput())
 
     class Meta():
